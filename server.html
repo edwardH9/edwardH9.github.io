@@ -36,8 +36,10 @@
                                         <span class="image featured"><img src="images/serverMainPage.jpg" alt="" /></span>
                                     </div>
 								</header>
+                                <h2>Role of the Server</h2>
+                                <p>The server houses data that the rover gathers from its sensors, such as ambient temperature, total uptime, mission location, etc. There is also code that would allow a Raspberry Pi to stream a live camera feed through a page on the server. Once the vehicle would return from a mission, it would have a microSD card with data on that mission. This data could then be loaded into the SQL database, to be displayed on the server.<br>Some of these features require users to login, and the most sensitive data is restricted to myself, as the administrator, and the advising Professor who oversaw my participation in this program.</p>
 								<h2>Main Server File (Node.js, Express.js, EJS, MySQL)</h2> 
-                                <p>The server's main javascript file</p>
+                                <p>The server's main JavaScript file: </p>
                                 <pre><code>
 //Include packages
 const express= require('express')
@@ -183,7 +185,7 @@ server.listen(5000,()=>{
 
                             <article class="post">
 								<h2>Server Routes (Node.js, Express.js)</h2> 
-                                <p>Below is the route javascript file for the specified URLs within it</p>
+                                <p>Below is the route JavaScript file for the specified URLs within it: </p>
                                 <pre><code>
 const express=require('express')
 const router = express.Router()
@@ -199,7 +201,7 @@ module.exports=router
 
                             <article class="post">
 								<h2>Database Controller (JS, EJS, MySQL)</h2> 
-                                <p>Below is the Javascript controller file for accessing and making queries to the database through the webserver</p>
+                                <p>Below is the JavaScript controller file for accessing and making queries to the database through the webserver: </p>
                                 <pre><code>
 //Set up the connection to MySQL
 const mysql = require('mysql')
@@ -207,7 +209,7 @@ const pool = mysql.createPool({
     connectionLimit: 100,
     host: process.env.HOST,
     user: 'root',
-    password: 'SProtocol934',
+    password: process.env.PASSWORD,
     database: process.env.DATABASE
 });
 

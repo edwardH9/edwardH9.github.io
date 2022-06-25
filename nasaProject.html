@@ -30,32 +30,44 @@
 						<!-- Post -->
 							<article class="post">
 								<header>
-									<div class="title">
+									<div class="title" style="padding-bottom: 1vw; padding-top: 2vw;">
 										<h2>NASA Project: Autonomous Drone/Rover Hybrid</h2>
 										<p>Overview</p>
 									</div>
 								</header>
-								<span class="image featured"><img src="images/nasaProjOverview.jpg" alt="" /></span>
-								<p>In the Summer of 2021, my school, American River College, was offered an internship opportunity with NASA through the California Space Grant Consortium. The goal of the internship was to provide students with single board computers and microcontrollers, and let them make any project based on this equipment that they wanted. My project was made with the goal of making a vehicle with the following abilities:</p>
+								<figure>
+									<p style="text-align: left; padding-left: 10vw;"><b>Version 1 of the Hybrid Exploratory Vehicle</b><span style="float: right; padding-right: 10vw;"><b>Version 2 of the Hybrid Exploratory Vehicle</b></span></p>
+									<span><img src="images/MEEDRH.jpg" alt="" style="height: 40vw; width: auto; padding-bottom: 1vw;padding-right: 2vw;"/></span>
+									<span><img src="images/BEEDRH.jpg" alt="" style="height: 40vw; width: auto; padding-bottom: 1vw;"/></span>
+								</figure>
+								<p>Since the Summer of 2021, I have lead the development of an exploratory vehicle with a team of 11 other students under NASA's Artemis Program. The main goals for the vehicle were the following:</p>
 								<li>Capable of travelling through land and air</li>
 								<li>Remotely controllable at any place on Earth</li>
 								<li>Built to survive extremely high temperatures of up to 1250C</li>
 								<li>Standard autonomous vehicle capabilities (obstacle avoidance, dynamically responsive control systems, data logging, etc)</li>
 								<li>Standard exploratory capabilities (excavation equipment, storage bay for excavated matter, self-loading/unloading system)</li>
 								<br>
-								<p>To accomplish this, I made plans for a unit that had two vehicles in one package, one for land travel and one for aerial travel. The land vehicle would house the aerial vehicle within itself and only deploy it once an authorized user requested it. The overall unit would have all standard obstacle avoidance capabilities, and have special features that would give it the functionality of a superhuman. 
-								<h3>Challenges</h3>There were no students that believed that this project could be done. I also faced the issue that my school's administration did not order the materials I needed for the project until the deadline for the final presentation already passed. Despite these occurences, I produced a design that surpassed the efforts of other colleges. The following is an overview of some of the electronic control systems of the unit.</p>
+								<p>To accomplish this, I made plans for a unit that had two vehicles in one package, one for land travel and one for aerial travel. The land vehicle would house the aerial vehicle within itself and only deploy it once an authorized user requested it. The overall unit would have all standard obstacle avoidance capabilities, battery recharging systems, and asynchronous operation between the subvehicles. 
+								<h2>Version 1 of the Vehicle</h2>
+								<p>The original vehicle's primary purpose was to gather ground samples from lava tubes. The two excavators on the machine consist of a tungsten carbide drill bit and a diamond cutting wheel. These materials are among the hardest materials known, a necessary requirement for the rocks formed under high heats and pressures.</p>
 								<h3>Electronic Communications</h3>
-								<p>The land based component of the vehicle uses a Raspberry Pi to read data from its onboard electronic sensors. The Pi takes this data and records it into an internal file. Some sensor data is read into a Python script to allow the Raspberry Pi to react dynamically to its environment. One example is the proximity sensor. When the Pi receives a low reading from this sensor, the vehicle adjusts its course to avoid a collision. To accomplish this, the vehicle will stop moving, and scan 180 degrees to determine the direction with the clearest path. The tires will then adjust to that direction. There are several more complexities, this has just been one example.</p>
-								<p>The air based vehicle uses an ESP32 cam module for its main computer. The ESP32 connects to the Raspberry Pi over a WiFi signal that the ESP32 instantiates itself. From this connection, the user can send a signal to deploy the aerial vehicle and the controls for the vehicle will appear on the connections main page. The pilot could then remotely access the onboard camera of the air vehicle, to see what the vehicle sees and investigate the environment as desired. This vehicle would also have abilities to excavate and harvest samples from wherever it is deployed.</p>
+								<p>The land based component of the vehicle uses 4 Espressif microprocessors to read data from its onboard electronic sensors. The main controller sends human inputs over radio communication to the main processor of the board. The main processor repackages the received data before sending the packets to the secondary processors which then use the data to perform movement and other functionality. Due to the small bandwith, the range of all wireless communications can exceed 450 meters. There are also provisions for all data to be recorded onto a microSD card, if the machine would fail during operation. This data can also be loaded onto the secure web server I created to house information regardings this machine and its operators.</p>
+								<p>The air based vehicle uses an Espressif camera module for its main computer. Used as an IP camera, this processor creates a local secure WiFi network that approved users can connect to. Through this connection, operators can view the drones onboard camera feed in realtime, as well as control the drone remotely. There is also a 9-Axis IMU to allow the drone to keep stable flight patterns without instruction.</p>
 								<p><a href="robotics.html"><strong>View all code for systems developed for this project here</strong></a></p>
 								<h3>Integrated Server</h3>
-								<p>To complement the sensors onboard both the land based vehicle and air based vehicle, I developed a server using Node.js, Express.js and third party modules for the Raspberry Pi. The server was envisioned to act as both a data warehouse for the onboard electronics, as well as a human-machine interface to allow humans to remotely monitor/control the vehicles actions. In the span of the internship, I created an example database in MySQL and linked that to the server. I also set permissions for different users within the database, and configured user access to the vehicles controls based on those permissions.</p>
+								<p>To complement the sensors onboard both the land based vehicle and air based vehicle, I developed a server using Node.js, Express.js and third party modules for the Raspberry Pi. The server was envisioned to act as both a data warehouse for the onboard electronics, as well as a human-machine interface to allow humans to remotely monitor/control the vehicles actions. I created an example database in MySQL and linked that to the server with data on potential mission sites and dates. I also set permissions for different users within the database, and configured user access to the vehicles controls based on those permissions.</p>
 								<p>View the main Javascript code for the server <strong><a href="server.html">here</a></strong> or view all of the server's project files on my <strong><a href="https://github.com/edwardH9/NASAProjectNodeServer">Github.</a></strong></p>
 
 								<h3>Mechanical Construction</h3>
-								<p>Getting the subvehicles to survive extreme temperatures requires approaches unique to each vehicle. The land based unit can survive the heat with the use of metals such as tungsten or titanium. These metals have melting points well above the 1250C target. To deal with residual heat that builds over time, insulation could be used to keep the electronics cool. Ceramic fiber and polyurethane insulation are the best candidates for this task. The drone, however, has weight limitations that limit the techniques that can be used to increase its thermal resistance. To solve this problem, I used balsa wood, carbon fiber, fiberglass, and epoxy resin along with various chemical additives. This compound makes the balsa wood much more damage and heat resistant. The chemical additives decrease the thermal expansion coefficient of the overall system and make the bond between these substances stronger.</p>
+								<p>The land based unit can survive extreme heat with the use of metals such as tungsten or titanium. These metals have melting points well above the 1250C target. To deal with residual heat that builds over time, Ceramic Fiber insulation could be used to keep the electronics cool. The drone, however, cannot carry such materials while being able to generate usable thrust. To solve this problem, I used balsa wood, carbon fiber, fiberglass, epoxy resin, and various chemical additives. This compound makes the balsa wood much more damage and heat resistant. The chemical additives decrease the thermal expansion coefficient of the overall system.</p>
+								<img src="images/compositeMainBoard.jpg" alt="Main Board" class="image featured">
+								
+								<h3>Version 2 of the Vehicle</h3>	
+								<p>After presenting the Version 1 design to NASA and other University's, I became a coordinator for this internship and was invited to mentor another group of students. These students wanted to augment the rover with equipment capable of finding life on the moon. Some students developed a ground penetrating radar system that could detect deposits of liquid water below the area's surface. Others showed how the vehicle could use a Luciferase Assay on the samples collected to look for evidence of bioluminescent activity. This required a robot arm to place samples into vials that would react with the Assay under a luminometer. Samples that test positive would be also be transferred, by the arm, into a storage container for further analysis. The final product of these efforts is shown at the top of this page. </p>
 							
+								<h3>Conclusion</h3>
+								<p>Version 2 of the project was presented to NASA faculty and other California University's on February 25, 2022. The machine is no longer under development, though all documentation still exixts. Through this program, I have held 2 leadership positions, presented scientific presentations before established professional engineers and scientists, and developed skills in embedded systems, computer networking, full-stack application development, and materials science. My certificate of completion for this program is below: </p>
+								<img src="images/MCert.png" style="height: 35vw">
 							</article>
 
 					</div>
@@ -65,7 +77,6 @@
 						<ul class="icons">
 							<li>Other Links</li>
 							<li><a href="https://github.com/edwardH9"><i class="fab fa-github"></i></a></li>
-							<li><a href="https://www.linkedin.com/in/edward-hernandez-401a85183/"><i class="fab fa-linkedin-in"></i></a></li>
 						</ul>
 					</section>
 
