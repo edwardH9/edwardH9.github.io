@@ -31,10 +31,11 @@
 								<header>
 									<div class="title">
 										<h2>Robotics Code (Python and C++) </h2>
-                                        <p>This page shows all code for the robotic control systems used in the NASA program I participated in. To see the code for the server I developed for this vehicle, <strong><a href="server.html">Click here</a></strong><br> The first entries cover the control algorithms used in the land based vehicle.</p>
-                                        <span class="image featured"><img src="images/roverTestProj2.jpg" style="height:47vw"alt="" /></span>
+                                        This page shows all code for the robotic control systems used in the NASA program I participated in. See the code for the server I developed for this vehicle <strong><a href="server.html">here</a></strong><br>
+                                        <span class="image featured"><img src="images/roverTestProj3.jpg" style="height:48vw;padding-top: 3vw;"alt="" /></span>
                                     </div>
 								</header>
+                                <p>The first entries describe the control systems used in the land based vehicle, beginning with a calibration algorithm that ensures that the steering system is aligned.</p>
 								<h2>Servo Calibration Script (Python)</h2> 
                                 <p>All servos run through this script before being used for the land vehicles obstacle avoidance algorithm.</p>
                                 <pre><code>
@@ -322,7 +323,7 @@ while True:
                             </article>
 
                             <article class="post">
-                                <h2>Air Based Vehicle Stabilization Algorithm (C++)</h2>
+                                <h2>Drone Flight Stabilization Algorithm (C++)</h2>
                                 <p>This program reads data from a 6-Axis inertial measurement unit and varies electrical pulse signals to the drone's motors to keep the vehicle's flight stable. </p>
                                 <pre><code>
 //Include libraries
@@ -574,7 +575,7 @@ void loop() {
                       
                             <article class="post">
                                 <h2>RFID Secured Locking System (C++)</h2>
-                                <p>This program uses an RFID module to securely unlock an electromagnetic Solenoid. There is also an LCD screen to display feedback to the user as to whether the system has accepted their RFID card or not. For the air vehicle, this would ensure that only authorized people can perform maintenance on the vehicle between missions.</p>
+                                <p>This program uses an RFID module to securely unlock an electromagnetic Solenoid. There is also an LCD screen to display feedback to the user as to whether the system has accepted their RFID card or not. This restricts access to the drone to authorized personnel only, and can be used as an override in case of malfunction.</p>
     
 <pre><code>
 //Include Libraries

@@ -30,14 +30,14 @@
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2>Server Code (Node.js, Express.js, EJS, SQL) </h2>
-                                        <p>This page shows some of the server code I developed for the Autonomous Drone/Rover Hybrid vehicle. To view more of the servers code, <a href="https://github.com/edwardH9/NASAProjectNodeServer">see my Github page</a></p>
-                                        <p><strong>Screenshot of the servers home page:</strong></p>
-                                        <span class="image featured"><img src="images/serverMainPage.jpg" alt="" /></span>
+										<h2>Full Stack Application for NASA Artemis Program (Node.js, Express.js, EJS, SQL) </h2>
+                                        <p>This page shows the software developed for the NASA Internship I completed described <a href="nasaProject.html">here.</a></p>
+                                        <p><strong>Server home page:</strong></p>
+                                        <span class="image featured"><img src="images/serverMainPage0.png" style="height: 40vw;" alt="" /></span>
                                     </div>
 								</header>
-                                <h2>Role of the Server</h2>
-                                <p>The server houses data that the rover gathers from its sensors, such as ambient temperature, total uptime, mission location, etc. There is also code that would allow a Raspberry Pi to stream a live camera feed through a page on the server. Once the vehicle would return from a mission, it would have a microSD card with data on that mission. This data could then be loaded into the SQL database, to be displayed on the server.<br>Some of these features require users to login, and the most sensitive data is restricted to myself, as the administrator, and the advising Professor who oversaw my participation in this program.</p>
+                                <h2>Project Description</h2>
+                                <p>The server houses data that the robot gathers from its sensors. There is also code that would allow the integrated Raspberry Pi to stream a live camera feed through a page on the server. Once the vehicle would return from a mission, it would have a microSD card with data on that mission. This data could then be loaded into the SQL database, to be displayed on the server.<br>When user's login, pages they can access are limited to their permission level which is set in the server database.</p>
 								<h2>Main Server File (Node.js, Express.js, EJS, MySQL)</h2> 
                                 <p>The server's main JavaScript file: </p>
                                 <pre><code>
@@ -94,7 +94,7 @@ const pool = mysql.createPool({
     connectionLimit: 100,
     host: process.env.HOST,
     user: 'root',
-    password: 'SProtocol934',
+    password: process.env.DATAP,
     database: process.env.DATABASE
 });
 
@@ -102,11 +102,6 @@ const pool = mysql.createPool({
 pool.getConnection((err, connection)=>{
     if(err) throw err;
     console.log("Database Connected, ID:" + connection.threadId)
-})
-
-//Below are several pages on the website
-app.get('/cameraR', (req,res)=>{
-    res.render("landFeedPg")
 })
 
 app.get('/cameraD', (req,res)=>{
@@ -119,19 +114,6 @@ app.get('/camera3', (req,res)=>{
 
 app.get('/api/missionInformation',(req,res)=>{
     res.json(missionData)
-})
-
-app.get("/biologyApplications",(req,res)=>{
-    res.render("biologyPage")
-})
-
-
-app.get("/delta",(req,res)=>{
-    res.render("delta")
-})
-
-app.get("/development",(req,res)=>{
-    res.render("dev")
 })
 
 //Route parameter method to query
@@ -209,7 +191,7 @@ const pool = mysql.createPool({
     connectionLimit: 100,
     host: process.env.HOST,
     user: 'root',
-    password: process.env.PASSWORD,
+    password: process.env.DATAP,
     database: process.env.DATABASE
 });
 
@@ -304,8 +286,7 @@ exports.search = (req,res)=>{
                             <article class="post">
 								<header>
 									<div class="title">
-										<h2>MySQL Backend Database</h2>
-                                        <p>The following is a screenshot of the backend database that the server is connected to. <br><br> Only some of the tables within the database are shown.</p>
+										<h2>Sample View of MySQL Backend</h2>
                                         <span class="image featured"><img src="images/dbScreenshot.jpg" alt="" /></span>
                                     </div>
 								</header>
