@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Projects in Physics</title>
+		<title>Analysis of Monatomic Nanowire</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -13,34 +13,36 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Projects in Physics</h1>
+						<h1>Physics</h1>
 						<nav class="links">
 							<ul>
 								<li><a href="index.html"">Back to Home Page</a></li>
 							</ul>
 						</nav>
 					</header>
-
 				<!-- Main -->
 					<div id="main">
+
 						<!-- Post -->
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2>Overview of Nuclear Physics</h2>
-                                        <p>This section covers </p>
+										<h2 style="padding-bottom: 0px;">Analysis of Monatomic (Single Basis) Nanowire</h2>
                                     </div>
 								</header>
-                               <span class="image featured"><img src="images/cecPage.png"/></span>
-                                <p>This project consists of two different visualizations. One visualization is based on each plants capacity factor. The capacity factor is a percentage value that indicates at what capacity the plant is generating power relative to its own technological, physical, and/or other constraints. The second, more complex visualization shows how this capacity factor changes per month for each power plant during the years 2014-2020. This project consists of over 10,000 lines of code and the end product is displayed on the CEC's official website.</p>
-                                <p>View the landing page for the 2020 Annual Capacity Factor visualization <a href="https://www.energy.ca.gov/data-reports/energy-almanac/california-electricity-data/3-d-interactive-visualization-california">here.</a></p>
-                                <p>View the 2020 Annual visualization <a href="https://repository.energy.ca.gov/3D_Visualizations/2020_Annual/2020cf.html">here.</a></p>
-                                <p>View the landing page of the monthly visualization <a href="https://www.energy.ca.gov/data-reports/energy-almanac/california-electricity-data/visualization-seasonal-variation-0">here.</a></p>
-                                <p>View the monthly visualization directly <a href="https://repository.energy.ca.gov/3D_Visualizations/2014-2020_Monthly_Visualization/2014-2018_monthly.html">here.</a></p>
+                               <!--<span class="image featured"><img src="images/a5.png" style="height:38vw"/></span>-->
+                                <p>Considering a wire one atom thick, composed completely of the same atom. A tight binding model can be constructed with the following Hamiltonian: $$H = \sum\limits_{i=1}^n{{eC_i^\dagger}{C_i}}+\sum\limits_{i=1}^{n-1} t({{C_i}{C_{i+1}^\dagger}+{C_{i+1}^\dagger}{C_i}}) .$$
+									<ol style="list-style-type:none;">Where:
+										<li>C terms are electron creation/annihilation operators</li>
+										<li>t denotes the quantum mechanical tunneling probability, in this case modulated by electrical current</li>
+										<li>e is the onsite energy of any site in the wire</li>
+										<li>n is the index of any atom in the wire</li>
+									</ol>
+
+
 							</article>
-
-
 			</div>
+		
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -48,6 +50,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+			<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</body>
 </html>

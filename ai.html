@@ -51,16 +51,20 @@
 								<ol style="list-style-type:circle">
 									<li>Pytorch</li>
 									<li>Panda's, Numpy, Matplotlib, etc.</li>
-									<li>Speech Recognition</li>
-									<li>Pyttsx3 (Python Text-to-Speech engine)</li>
-									<li>Beautiful Soup</li>
 								</ol>
-								<p>The main use case for the unit is as a personal assistant. Thus, the unit can access websites for tasks such as reporting daily news events, reading scientific journals, checking weather forecasts, etc. The unit actively build's and maintain's memory of common people/things that the user mentions, and persists its memory in a serialized data format between interactions. The unit speaks to the user if possible, and otherwise prints its output to the terminal.</p>
+								<p>The main use case for the unit is as a personal assistant. Thus, the unit can access websites for tasks such as reporting daily news events, reading scientific journals, checking weather forecasts, etc. The unit actively builds and maintains memory of common people/things that the user mentions, and persists its memory in a serialized data format between interactions. The unit speaks to the user if possible, and otherwise prints its output to the terminal.</p>
 								</p>
+
+								<p>When a user first runs the program, the program will generate a human face and ask the user if the user approves of the generated avatar. The program will continually generate new faces until the user approves, in which case the program will save that face as part of the programs main object.</p>
 								<h3>Sample collage of generated avatar images:</h3>
-								<img src="images/gH.png" style="height:15vw">
+								<img src="images/gH.png" style="height:15vw;padding-bottom: 1vw;">
+								<p>After this, the program asks the user if they would like the program to perform preset start up functions. By default, these include stating the date and time, reading out the top news headlines of the day, reporting recent experiments in physics, and read out recent emails.</p>
 								<h3>Sample output of unit performing basic read-out functions:</h3>
-								<img src="images/koUt.png" style = "height: 20vw">
+								<img src="images/koUt.png" style = "height: 20vw;padding-bottom: 1vw;">
+								<p>After this, the unit will enter conversational mode. In this mode, the program will wait for the user to speak. When the user speaks, the program will classify the sentence and respond conversationally to plain statements, or if the sentence was a command, the program will execute the command. The program will in either case also determine the emotion of the users sentence. In future versions, the responses that the program gives will take this sentiment into account.</p>
+								<h3>Sample processing of user sentences</h3>
+								<img src="images/sentenceParse.png" style="padding-bottom: 1vw;">
+								<p>This project is still under active development. Several more features are planned for implementation.</p>
 							</article>
 			</div>
 
@@ -70,6 +74,5 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
