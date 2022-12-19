@@ -13,10 +13,9 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="nasaProject.html">NASA Project: Autonomous Drone/Rover Hybrid</a></h1>
+						<h1><a href="nasaProject.html">NASA Web Server: HMI and Database</a></h1>
 						<nav class="links">
 							<ul>
-								<li><a href="robotics.html">Robotics Code</a></li>
 								<li><a href="index.html"">Back to Home Page</a></li>
 							</ul>
 						</nav>
@@ -30,15 +29,22 @@
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2>Full Stack Application for NASA Artemis Program (Node.js, Express.js, EJS, SQL) </h2>
-                                        <p>This page shows the software developed for the NASA Internship I completed described <a href="nasaProject.html">here.</a></p>
+										<h2>NASA Web Server: Drone HMI and Mission Database</h2>
+                                        <p>In 2021, I developed self-driving rovers for NASA's Artemis Program along with a web server to control & store information gathered by these vehicles.</p>
                                         <p><strong>Server home page:</strong></p>
-                                        <span class="image featured"><img src="images/serverMainPage0.png" style="height: 40vw;" alt="" /></span>
+                                        <span class="image featured"><img src="images/serverMainPage0.png" style="height: 37vw;" alt="" /></span>
                                     </div>
 								</header>
                                 <h2>Project Description</h2>
-                                <p>The server houses data that the robot gathers from its sensors. There is also code that would allow the integrated Raspberry Pi to stream a live camera feed through a page on the server. Once the vehicle would return from a mission, it would have a microSD card with data on that mission. This data could then be loaded into the SQL database, to be displayed on the server.<br>When user's login, pages they can access are limited to their permission level which is set in the server database.</p>
-								<h2>Main Server File (Node.js, Express.js, EJS, MySQL)</h2> 
+                                <p>I used Node.js, Express.js, and SQL with MariaDB to develop Human Machine Interfaces as well as a secured database for some autonomous vehicles I developed during a NASA internship. This web server doesn't allow any user to access its databases or control interfaces until they first login. All attempted logins are checked against a MariaDB database that holds information on all active useres and their access number. The access number is a security parameter that limits which pages/databases the user can access, with 5 being full access. The databases that the server is linked to include sample data for missions that the drones completed and information on each user's activity (including missions they've completed, mission results, time spent, etc). These databases are also queryable, with all searches being done on the back end by parsing the post request information given by the user into an SQL query on the backend.</p>
+                                <p>I also implemented administrative software, that allows authorized users to monitor activity on the server. This includes notifications on when users access internal databases, the queries they make in internal databases, any instances of an unauthorized user accessing restricted information, etc. The server follows best practices, including keeping sensitive login information to the servers resources in a .env file and isloating databases from eachother.</p>
+								<p>I, as the administrator, would update the SQL databases and permissions as needed by directly writing the appropriate SQL queries. From here, all other changes related to these databases would propagate automatically.</p> 
+
+                                <h2>Sample View of MariaDB(SQL) Backend</h2>
+                                <img src="images/dbScreenshot3.jpg" alt="" style="height:37vw;"/>
+                                
+                                
+                                <h2>Main Server File (Node.js, Express.js, SQL with MariaDB)</h2> 
                                 <p>The server's main JavaScript file: </p>
                                 <pre><code>
 //Include packages
@@ -89,7 +95,7 @@ videoStream.acceptConnections(app, {
     quality: 7 //lower is faster
 }, '/stream.mjpg', true);
 
-//Code below creates a connection to the MySQL database
+//Code below creates a connection to the MariaDB database
 const pool = mysql.createPool({
     connectionLimit: 100,
     host: process.env.HOST,
@@ -182,7 +188,7 @@ module.exports=router
 							</article>
 
                             <article class="post">
-								<h2>Database Controller (JS, EJS, MySQL)</h2> 
+								<h2>Database Controller (JS, EJS, MariaDB(SQL))</h2> 
                                 <p>Below is the JavaScript controller file for accessing and making queries to the database through the webserver: </p>
                                 <pre><code>
 //Set up the connection to MySQL
@@ -283,14 +289,6 @@ exports.search = (req,res)=>{
     </pre></code>
 							</article>
 
-                            <article class="post">
-								<header>
-									<div class="title">
-										<h2>Sample View of MySQL Backend</h2>
-                                        <span class="image featured"><img src="images/dbScreenshot.jpg" alt="" /></span>
-                                    </div>
-								</header>
-							</article>
 
 			</div>
 

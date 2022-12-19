@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Generalized Artificial Intelligence</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Using AI to Predict Employee Turnover</h1>
+						<nav class="links">
+							<ul>
+								<li><a href="index.html"">Back to Home Page</a></li>
+							</ul>
+						</nav>
+					</header>
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2 style="padding-bottom: 0px;">Using AI to Predict Employee Turnover + Layoff Data Analysis</h2>
+                                    </div>
+								</header>
+                                <h3>Project Introduction and Data Analysis</h3>
+                               <!-- <span class="image featured"><img src="images/a5.png" style="height:38vw"/></span> -->
+                                <p>I developed a model in TensorFlow reaching over 90% validation accuracy that predicts whether a given employee will leave their job. The training data collected on employees has a sample size of 1129 with each sample having 12 features. These features are broken into two categories as shown below.</p>
+                                <img src="images/dataTypes.png" alt="" style="padding-top:0vw; display: block; margin-left: auto; margin-right: auto; height: 18vw;padding-bottom: 1vw;"/>
+                                <p>The first category, named "Concrete Data" in the above, holds objective information on the employee, and the second category holds absract personality scores that the employees self report. For these data, the employee is asked to rate themselves on a scale of 1-10 on how strongly the qualities above describe them, with 1 being weak agreement and 10 being strong agreement.</p>
+                                <h3>Data Analysis</h3>
+                                <p>I begin by plotting the distributions across each data variable presented above, starting with the concrete data variables.</p>
+                                <img src="images/concreteDataDistributions.png" alt="" style="padding-top:0vw; display: block; margin-left: auto; margin-right: auto; height: 28vw;"/>
+                                <p>As seen above, the age and experience of the employees in this dataset is skewed right, with most employees being under 32 years old and with less than 4 years experience. The Retail Industry and HR Profession are also largely overrepresented in this dataset. Given this result, we know immediately that young employees in Retail and/or the HR profession are the optimal audience to use the machine learning model on. Also, according to the BLS, the median age of the US workforce in 2021 was about 41 years, which our dataset does have significant representation of, though not the highest. Moving forward, I now plot the distributions of the abstract data features.</p>
+                                <img src="images/abstractData.PNG" alt="" style="padding-top:0vw; display: block; margin-left: auto; margin-right: auto; height: 28vw;"/>                        
+                                <p>These distributions are all approximately normal, as one could expect. However, because these data are self-reported and purely abstract, the integrity of this data is highly questionable. Employees can report whatever scores they want, even when they know the score is opposite to their personality. In production, I'd advise the production of two models with one model not using these abstract data as it would be more reliable and scalable.</p>
+                                <h3>Data Augmentation</h3>
+                                <p>To prepare the data in this model for a machine learning model, I first standardize the data across each variable in the dataset. I'd like to normalize such that all values in this dataset have values between 0 and 1 to improve the model's performance. I do this by applying the following formula across each data sample:</p>
+                                <img src="images/normalizeForm.png" alt="" style="padding-top:0vw; display: block; margin-left: auto; margin-right: auto; height: 4vw;"/>                        
+                                <p>Now, I transform all categorical data (including gender, industry, profession, etc) into a one hot representation. This will increase the dimensionality of the model, but the model will be small so this compromise is acceptable. These transformations result in the data changing as shown below:</p>
+                                <img src="images/AugmentationData.png" alt="" style="padding-top:0vw; display: block; margin-left: auto; margin-right: auto; height: 25vw;padding-bottom: 1vw;"/>                        
+                                <h3>Making the Machine Learning Model</h3>
+                                <p>Now that the data is all numerically encoded I prepare the machine learning model using TensorFlow. The model architecture in Python code is shown below as well as verification of the model reaching 90% accuracy through 45 training epochs. </p>
+                                <img src="images/BusAIModel.png" alt="" style="padding-top:0vw; height: 15vw;width:32vw;padding-bottom: 1vw;"/>                        
+                                <img src="images/AIAccVer.png" alt="" style="padding-top:0vw;height: 15vw;padding-bottom: 1vw;"/>                        
+                                <p>To end this post, I show the model making a turnover prediction given a 34 year old Female working in the Retail Industry as an HR rep:</p>
+                                <img src="images/busAiPred.PNG" alt="" style="padding-top:0vw;height: 20vw;padding-bottom: 1vw;"/>  
+                                <br><br>Technologies Used:
+								<ol style="list-style-type:circle;">
+									<li>Python</li>
+									<li>Pandas</li>
+                                    <li>TensorFlow</li>
+                                    <li>Numpy</li>
+                                    <li>SciKitLearn</li>
+								</ol>
+							</article>
+			</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
