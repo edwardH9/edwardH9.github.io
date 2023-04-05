@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Statistical Analysis of Customer Experience in Consumer Finance</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Statistical Analysis of Customer Experience in Consumer Finance</h1>
+						<nav class="links">
+							<ul>
+								<li><a href="index.html" style="text-align: right;">Back to Home Page</a></li>
+							</ul>
+						</nav>
+					</header>
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2>Statistical Analysis of Customer Experience in Consumer Finance</h2>
+                                        <p>Analyzing the Financial Industry to Improve Consumer Experience</p>
+                                    </div>
+								</header>
+                              <p>The Consumer Financial Protection Bureau collects data on complaints that consumers report against American financial institutions across various products and services. I wrote a Python program to scrape this dataset for all complaints between 2011 and 2016, and this post aims to determine the most effective ways to reduce complaints in the Consumer Finance industry.</p> 
+                              <p>Starting with the raw data, the CFPB adds several fields that need to be cleaned off for our analysis, such as complaint ID number, bank ID, call center, etc. After cleaning, the dataset has the following 11 dimensions and I imported the dataset into an Excel table:</p>
+                              <span style="align-items: center;"><img src="./images/finXDB.png" style="display: block;margin-right: auto;margin-left: auto;padding-bottom: 2vw;height: 30vw;"></span>
+							 <p>In the end, the dataset had a sample size of 550,000+ complaints from 3,600+ Financial Firms across all 50 states.</p> 
+							  <h3>Macroscopic Analysis of the Data</h3>
+							  <p>First I identified historical trends in the data, starting with plotting the volume of complaints received by month. At the same time, I also plotted the total volume of complaints received for each calendar month for all years in the dataset.</p>
+							  <span><img src="./images/finComplaintsHist.png" style="margin-left: 1vw;margin-right: 2vw;height: 18vw;"><img src="./images/Historical ComplaintsMo.png"style="height: 18vw;"></span>							  
+							  <p>From the Historical Complaint chart we see that the Consumer Finance industry has seen steadily increasing complaint volume as time has passed. The drop at the right of the historical graph can be dismissed, as it results from the data collection being incomplete for March and April 2016. The Least Squares Regression line is a very strong fit, and suggests that complaint volume will, on average, continue to increase in the following year.</p>
+							  <p>We now want to determine the business cycle for Consumer Finance. For this we compare the complaint volume by month for one calendar year in the dataset. In the Consumer Complaints by Month chart we see that, across all years, Q1 saw a significantly increased influx of demand which slightly spilled over to Q2, and after which work demand stabilized. This trend also held for all individual calendar years in the dataset. The business cycle then consists of 3 periods, the expansion period occuring in Q1 followed by the cooling period in Q2 and the flattening period in Q3 and Q4.</p> 
+							  <p>From these two findings we can create our first actionable insight: <mark style="background-color: yellow;">Financial firms should expect to see more demand on average than last year, with the largest demand occuring in Q1.</mark> Based on this we can recommend either an <mark style="background-color: yellow;">increase in resource allocation devoted to addressing the complaints or increased efficiency in how firms resolve disputes with their products/services.</mark> <mark style="background-color: yellow;"> After Q2,</mark> the firm can <mark style="background-color: yellow;">steadily scale back resources</mark> allocated to addressing complaints.</p>
+							  
+							  <h3>Microscopic Analysis</h3>
+							  <p>We now have identified overall trends in the data and have a better picture of the industry. We now want to check for data clustering to see if theres any particular grouping of the data where complaints are concentrated. First I plotted the distribution of complaint reports by firm for all years aggregated in the dataset. If we expect that firms are all performing to similar customer satisfaction, we expect an approximately uniform distribution. The data however says otherwise:</p>
+							  <span style="align-items: center;"><img src="./images/Historical ComplaintsbyFirm.png" style="display: block;margin-right: auto;margin-left: auto;height: 25vw;"></span>
+							  <p>We see that <mark style="background-color: yellow;">Bank of America contributes disproportionately to the total complaint volume</mark>, receiving over 25% more complaints than second place Wells Fargo. Further analysis of the data revealed that the top 5 worst performing banks were the same for each year, and this included <mark style="background-color: yellow;">Bank of America, Wells Fargo, and JP Morgan.</mark> Seeing that Bank of America has strong representation in the dataset, I hypothesized that the products that Bank of America received the most complaints about should be similar to the most complained about products in the overall dataset. Surprisingly, this wasn't the case:</p>
+							  <span><img src="./images/Historical ComplaintsbyIssue.png" style="margin-left: 6vw;margin-right: 4vw;height: 18vw;"><img src="./images/Historical ComplaintsBoA.png"style="height: 18vw;"></span>							  
+							  <p>The <mark style="background-color: yellow;">overall industry struggled the most in Loan Modifications, Incorrect Credit Reporting, and Loan Payments.</mark> However, <mark style="background-color: yellow;">Bank of America had no weakness in these categories,</mark> instead <mark style="background-color: yellow;">struggling with Bankruptcy Services, Billing Disputes, and Account Deliquencies.</mark></p>
+							  <p>Remarkably, <mark style="background-color: yellow;">none of the lowest performing products/services of the 5 most represented firms in the dataset matched the lowest areas of the overall dataset.</mark> As an example, <mark style="background-color: yellow;">Wells Fargo's lowest ratings were from Deposit/Withdrawal Service Issues</mark> and <mark style="background-color: yellow;">JPM struggled most in Service Fee disputes,</mark> yet the dataset indicates Loan Servicing as the most prevalent failure in the industry. Even when comparing the firms against each other I found that <mark style="background-color: yellow;">there was no strong correlation between complaint volume and complaint category.</mark> There was no failing product/service that these high representation firms had in common. From this we can say that firms must take a personalized approach in their business developments to improve and that the <mark style="background-color: yellow;">Consumer Finance industry is unlikely to improve by imposing blanket policies.</mark></p>
+							 
+							  <h3>Analysis of Consumer Reporting</h3> 
+							 <p>Finally, we'll look at the reporting characteristics of the dataset. I started by tabulating the complaint volume by state as well as by reporting method. My hypothesis for segregating by state was that the complaint volume may be proportional to the states population. From this I expected California and Texas to top the list. I segregated by reporting method to get more information on the sampling of the population, as well as to use the results to determine the most efficient way to standardize future data collection.</p>
+							 <span><img src="./images/HistoricalComplaintsState.png" style="margin-left: 6vw;margin-right: 3vw;height: 18vw;"><img src="./images/Historical ComplaintsRe.png" style="margin-left: 1vw;margin-right: 2vw;height: 18vw;"></span>							  
+							  <p>We can see that the state <mark style="background-color: yellow;">chart does suggest that complaint volume is proportional to state population</mark> as opposed to geographic location. We can also see that the <mark style="background-color: yellow;">majority of reporting was received through internet-based methods</mark> such as Email and Web forms.</p>
+							  <p>Given these results <mark style="background-color: yellow;">we can suggest increasing resource allocations</mark> to high population states <mark style="background-color: yellow;">in proportion to that states population.</mark> We can also suggest streamlining online complaint processing methods due to it being the preferred reporting avenue. For data integrity, we'd suggest the standardization of a web form across all institutions regarding filing a complaint.</p>
+							 <h3>Conclusion</h3>
+							 <p>Let's first recap everything we found out about the Consumer Finance industry. Below are the main results we gathered from our descriptive analysis:
+							 <ol style="list-style-type:circle;">
+								<li>Complaints for the Year 2017 are likely to steadily increase industry wide</li>
+								<li>The business cycle consists of three phases, with expansion and peak work demand occuring in Q1</li>
+								<li>Strong correlation exists between state populations and complaint volume received</li>
+								<li>Bank of America, Wells Fargo, and JP Morgan consistently had among the most complaints of all firms</li>
+							 </ol>
+							</p>
+							 <p>From this information we can suggest the following policies:
+							 <ol style="list-style-type: circle;">
+								<li>Firms should increase resources allocated to addressing consumer complaints in 2017</li>
+								<li>Increases in spending toward customer experience should be proportional to the population that the firm serves</li>
+								<li>Each firm must self-audit to determine their own particular weaknesses</li>
+								<li>State and Federal policies aimed at addressing Consumer complaints are unlikely to effectively improve customer experience</li>
+								<li>Internet based methods of reporting complaints should be standardized across all firms to reach the most consumers</li>							 
+							</ol>
+							</p>
+							<p>To end this post, I leave an MS Power BI dashboard that incorporates the diagrams used above along with appropriate data slicers.</p>
+							<span><img src="./images/Historical ComplaintsDash.png" style="margin-left: 10vw;margin-right: 3vw;height: 35vw;"></span>								
+								<ol style="list-style-type:circle;">Technologies Used:
+								<li>Python</li>
+								<li>Pandas</li>
+								<li>MS Excel</li>
+								<li>MS Power BI</li>
+							</ol>
+						</article>
+			</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>

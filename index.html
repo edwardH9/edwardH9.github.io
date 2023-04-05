@@ -14,15 +14,28 @@
 					<header id="header">
 						<h1>Quick Navigation</h1>
 						<ul style="list-style-type: none;">
-							<li><a href="#DeepLearningProjects" style="text-align: left; padding-right: 2vw;">Business Data Science Projects</a></li>
-							<li><a href="#IT" style="text-align: left; padding-right: 2vw;">IT & Computer Networking</a></li>
+							<!-- <li><a href="#DeepLearningProjects" style="text-align: left; padding-right: 2vw;">Business Data Science Projects</a></li>
+							<li><a href="#IT" style="text-align: left; padding-right: 2vw;">Physical Science Projects</a></li> -->
 							<li><a href="#top" style="text-align: left; padding-right: 2vw;">Top of Page</a></li>
 						</ul>
 					</header>
 				<!-- Main -->
 					<div id="main">
+						<article class="post">
+							<header> <!--style="width: 70vw; height: 64vw; padding-top: 1vw;-->
+								<div class="title" style="padding-bottom: 1vw; padding-top: 1vw;">
+									<h2><a href="fin.html" >Statistical Analysis of Customer Experience in Consumer Finance</a></h2>
+								</div>
+							</header>
+							<a href="fin.html" " class="image featured"><img src="images/Historical ComplaintsDash.png" style="height: 26vw;" alt=""/></a>
+							<p>Here I analyze a consumer complaint dataset covering over 3600 financial institutions from 2011-2016. My analysis finds major trends in customer pain points along different financial products, lending services, and business seasons. Based on the results, I also provide actionable policy changes to improve customer experience in Consumer Finance as well as recommendations to standardize future data collection for further statistical modeling.</p>
+							<footer>
+								<ul class="actions">
+									<li><a href="fin.html" class="button large">Read More</a></li>
+								</ul>
+							</footer>
+						</article>
 						<a id="DeepLearningProjects"></a>
-						<h2 style="color: ghostwhite;">Business Data Science Projects</h2>
 						<article class="post" >
 							<header>
 								<div class="title" style="padding-bottom: 1vw; padding-top: 1vw;">
@@ -30,7 +43,7 @@
 								</div>
 							</header>
 							<a href="businessAI.html" class="image featured"><img src="images/busAI.png" alt="" style="padding-top:0vw;height: 37vw;"/></a>
-							<p>This machine learning model takes in an employees information including age, occupational industry, work experience, and other factors to determine if the employee is likely to leave their job. This model was created in TensorFlow and reaches 90% validation accuracy across 15 professions and 16 industries. Training data is preprocessed such that all categories are normalized and any new input is also automatically normalized.</p>
+							<p>This deep learning model uses an employees information including age, experience, work industry, and other factors to determine if the employee is likely to leave their job. With the use of data normalization algorithms and feature engineering, the model reaches 90% validation accuracy across 16 industries.</p>
 							<footer>
 								<ul class="actions">
 									<li><a href="businessAI.html" class="button large">Read More</a></li>
@@ -38,54 +51,36 @@
 							</footer>
 							<a id="physics"></a>
 						</article>
-
-						<article class="post" >
-							<header>
-								<div class="title" style="padding-bottom: 1vw; padding-top: 1vw;">
-									<h2><a href="visualization.html">Interactive Web Visualization of Electricity Generation in California</a></h2>
-								</div>
-							</header>
-							<a href="visualization.html" class="image featured"><img src="images/mVisualiztion.png" alt="" style="padding-top:0vw;"/></a>
-							<p>Professional application developed for the California Energy Commission that allows the public to visualize change in electricity generation over time in California.</p>
-							<footer>
-								<ul class="actions">
-									<li><a href="visualization.html" class="button large">Read More</a></li>
-								</ul>
-							</footer>
-							<a id="physics"></a>
-						</article>
-
-							<!-- Post -->
-						<article class="post">
-							<header> <!--style="width: 70vw; height: 64vw; padding-top: 1vw;-->
-								<div class="title" style="padding-bottom: 1vw; padding-top: 1vw;">
-									<h2><a href="ai.html" >Virtual Assistant AI</a></h2>
-								</div>
-							</header>
-							<a href="ai.html" " class="image featured"><img src="images/a5.png" style="height: 25vw;" alt=""/></a>
-							<p>This project uses 1 image generation model, 3 NLP models, 1 NER model, and serialized memory to function as a personal assistant. The image generation models create different faces for the AI's avatar, and the NLP models determine the users emotion through their sentences, as well as interpret commands the user gives. The NER model predicts important people or locations to the user, and stores these in memory at the users request. All models are created in PyTorch and all data work is done in Python using Pandas and SciKitLearn.</p>
-							<footer>
-								<ul class="actions">
-									<li><a href="ai.html" class="button large">Read More</a></li>
-								</ul>
-								<a id="IT"></a>
-							</footer>
-						</article>
 						
-						<h2 style="color: ghostwhite;">IT & Computer Networking</h2>
 						<article class="post">
 							<header> <!--style="width: 70vw; height: 64vw; padding-top: 1vw;-->
 								<div class="title" style="padding-bottom: 1vw; padding-top: 1vw;">
-									<h2><a href="server.html" >Web Server with SQL Backend & LAN Human Machine Interface</a></h2>
+									<h2><a href="server.html" >Maria DB SQL Web Server w/ Integrated API for NASA Rovers</a></h2>
 								</div>
 							</header>
-							<a href="server.html" " class="image featured"><img src="images/serverMainPage0.png" style="height: 25vw;" alt=""/></a>
+							<a href="server.html" " class="image featured"><img src="images/dbCover.png" style="height: 28vw;" alt=""/></a>
 							<p>I developed a web server using Node.js and Express.js that works with two self driving vehicles I developed for NASA. The web server acts as a LAN human machine interface, and has several SQL databases that house information relevant to NASA's goals for the Artemis Program.</p>
 							<footer>
 								<ul class="actions">
 									<li><a href="server.html" class="button large">Read More</a></li>
 								</ul>
 							</footer>
+						</article>
+						
+						<article class="post" >
+							<header>
+								<div class="title" style="padding-bottom: 1vw; padding-top: 1vw;">
+									<h2><a href="visualization.html">Visualizing Electricity Generation in California</a></h2>
+								</div>
+							</header>
+							<a href="visualization.html" class="image featured"><img src="images/mVisualiztion.png" alt="" style="padding-top:0vw;"/></a>
+							<p>This is a web application I developed for the California Energy Commission that allows the public to easily identify trends in electricity generation in California using a custom 3D visualization built with JavaScript.</p>
+							<footer>
+								<ul class="actions">
+									<li><a href="visualization.html" class="button large">Read More</a></li>
+								</ul>
+							</footer>
+							<a id="physics"></a>
 						</article>
 					</div>
 				<!-- Sidebar -->
@@ -94,12 +89,12 @@
 							<section id="intro">
 								<header>
 									<h2 id="namePlate">Edward Hernandez</h2>
-									<p id="selfIntroduc">Computer Scientist<br>Emphasis in Data Science and Computer Networking<br><br>
+									<p id="selfIntroduc">Data Scientist & Statistical Analyst<br><br>
 										<small style="color:white">Projects featured on this portfolio include work in:</p>
 										<ul style="color: aqua;list-style: none;">
-											<li style="padding-bottom: 1vw;"><a href ="ai.html">Machine Learning applied to Business Policy</a></li>
-											<li style="padding-bottom: 1vw;"><a href="visualization.html">Application Development for CA State Agencies</a></li>
-											<li style="padding-bottom: 1vw;"><a href="server.html">Web Server Development w/ Integrated SQL Backend</a></li>
+											<li style="padding-bottom: 1vw;"><a href ="businessAI.html">Machine Learning applied to Business Policy</a></li>
+											<li style="padding-bottom: 1vw;"><a href="visualization.html">Data Analytics Development for CA State Agencies</a></li>
+											<li style="padding-bottom: 1vw;"><a href="server.html">Maria DB SQL Web Server w/ Integrated API for NASA Rovers</a></li>
 										</ul></small>
 										<br>
 										<p style="color:white">I have professionally developed solutions for firms including:
@@ -113,29 +108,20 @@
 							</section>
 
 						<!-- Mini Posts -->
-							<section>
+							<!-- <section>
 								<div class="mini-posts">
-									<p style="color:white;font-family: 'Raleway', Helvetica, sans-serif;font-size: 0.8em;font-weight: 400;letter-spacing: 0.25em;line-height: 2.5em;text-decoration: none;text-transform: uppercase;">Code for select projects is directly accessible below:</p>
+									<p style="color:white;font-family: 'Raleway', Helvetica, sans-serif;font-size: 0.8em;font-weight: 400;letter-spacing: 0.25em;line-height: 2.5em;text-decoration: none;text-transform: uppercase;">Code for select projects is directly accessible below:</p> -->
 									<!-- Mini Post -->
-										<article class="mini-post">
+										<!-- <article class="mini-post">
 											<header>
 												<h3><a href="server.html">Code: NASA Project: Main Server</a></h3>
 												<p><strong>Node.js, Express.js, EJS, HTML, CSS, SQL</strong></p>
 											</header>
 											<a href="server.html" class="image"><img src="images/serverMainPage0.png" alt="" /></a>
 										</article>
-
 								</div>
-							</section>
+							</section> -->
 
-
-						<!-- Footer -->
-							<section id="footer">
-								<h3 id="otherLinks">Other Links</h3>
-								<ul class="icons">
-									<li><a href="https://github.com/edwardH9"><i class="fab fa-github"></i></a></li>
-									</ul>
-							</section>
 
 					</section>
 
